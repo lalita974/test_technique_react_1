@@ -6,16 +6,87 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 50px;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* Pour hériter de la taille et de la police du parent  */
 button {
-  /* Pour hériter de la taille et de la police du parent  */
   font-size: inherit;
   font-family: inherit;
   border: none;
   background-color: #fff;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  object-position: 50% 10%;
+  /* position: relative; */
+}
+
+button {
+  height: 50px;
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+.option {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 350px;
+  height: 100px;
+}
+
+h1 {
+  background-color: black;
+  color: white;
+  width: 350px;
+  border: 1px solid white;
+  height: 80px;
+  text-align: center;
+  padding: 20px 10px 20px 10px;
+  font-size: 30px;
+  border-radius: 5px;
+}
+
+.bloc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 1024px; */
+  border: 1px solid #000;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+}
+
+h2 {
+  color: rgb(190, 26, 26);
+  /* à mettre en blanc une fois de background OK  */
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.blocchoice {
+}
+
+.blocchoice p {
+  position: absolute;
+  top: 75%;
+  border: 1px solid white;
+  color: white;
+  background-color: #000;
+  text-align: center;
 }

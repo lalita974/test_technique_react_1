@@ -4,37 +4,30 @@ import movies from "./assets/movies.json";
 import Movies from "./components/Movies";
 
 const App = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [selection, setSelection] = useState("");
+  const [submitted, getSubmitted] = useState(false);
+  const [choice, setChoice] = useState("");
 
-  const options = movies.map((film) => {
+  const option = movies.map((film, index) => {
     return (
       <button
-        type="submit"
         onClick={() => {
-          setSubmitted(true);
-          setSelection(film.name);
+          getSubmitted(true);
+          setChoice(index);
         }}
-        key={film.id}
+        key={index}
       >
         {film.name}
       </button>
     );
   });
-
-  const movieChoosen = () => {
-    event.preventDefault();
-    return (
-      <>
-        <Movies movie={selection} />
-      </>
-    );
-  };
-
   return (
     <div className="app">
-      <form onSubmit={movieChoosen}>{options}</form>
-      {submitted || <div>Merci de choisir un film</div>}
+      <div className="option">{option}</div>
+      {submitted ? (
+        <Movies choice={movies[choice]} />
+      ) : (
+        <h1>Merci de choisir un film !</h1>
+      )}
     </div>
   );
 };

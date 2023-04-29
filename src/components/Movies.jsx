@@ -1,26 +1,23 @@
-import movies from "../assets/movies.json";
-
 const Movies = (props) => {
-  for (let i = 0; i < movies.length; i++) {
-    if (props.movie === movies[i].name) {
-      const choix = movies[i].name;
-    }
-  }
+  const { choice } = props;
 
-  return (
-    <section>
-      <h1>{choix.name}</h1>
-      <div>
-        {choix.actors.map((image) => {
-          return (
-            <div key={image.name}>
-              <p>{image.name}</p>
-              <img src={image.picture} />
-            </div>
-          );
-        })}
+  const bloc = choice.actors.map((actor) => {
+    return (
+      <div
+        className="blocchoice"
+        key={actor.id}
+        style={{ backgroundImage: choice.background }}
+      >
+        <p>{actor.name}</p>
+        <img src={actor.picture} />
       </div>
-    </section>
+    );
+  });
+  return (
+    <div className="bloc">
+      <h2>{choice.name}</h2>
+      {bloc}
+    </div>
   );
 };
 
